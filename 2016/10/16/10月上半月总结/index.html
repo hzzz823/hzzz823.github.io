@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>10月上半月总结.md | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这一周接触了很多东西，整理一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10月上半月总结.md">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/10月上半月总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这一周接触了很多东西，整理一下。">
+<meta property="og:updated_time" content="2016-11-23T15:30:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10月上半月总结.md">
+<meta name="twitter:description" content="这一周接触了很多东西，整理一下。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-10月上半月总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/16/10月上半月总结/" class="article-date">
+  <time datetime="2016-10-16T11:27:32.000Z" itemprop="datePublished">2016-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/程序员/">程序员</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      10月上半月总结.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这一周接触了很多东西，整理一下。<br><a id="more"></a><br>重建了一个博客，也不知道为什么，折腾了好久。可能是没设CNAME吧。<br>重新理一下建博客的过程，其实很简单。</p>
+<h1 id="1-hexo-github"><a href="#1-hexo-github" class="headerlink" title="1. hexo + github"></a>1. hexo + github</h1><p>我是mac系统，然后我的域名是<code>m.xydayer.me</code>,github名字是<code>hzzz823</code>，过程中需要换自己的。</p>
+<ol>
+<li>github创建repository，命名<code>hzzz823.github.io</code></li>
+<li>装hexo，<code>brew cask install hexo</code></li>
+<li>在你想要的目录下，<code>hexo init blog</code>，blog是文件夹名，自己起</li>
+<li>在<code>blog</code>目录下，<code>hexo init</code>,<code>npm install</code></li>
+<li><p><code>vi _config.yml</code>，在最后边，修改deploy配置（注意冒号后边有空格。）</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/hzzz823/hzzz823.github.io</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>npm install hexo-deployer-git --save</code> 否则git提交会失败。</p>
+</li>
+<li>在<code>blog/source</code>下创建一个文件’CNAME’里边存域名，我的是’m.xydyaer.me’</li>
+<li>在<code>blog</code>目录下，<code>hexo generate</code>,<code>hexo deploy</code>。然后访问你的域名就可以看到博客了。</li>
+</ol>
+<p>大概就这个过程，工具方面可能会缺node，brew,git…的话装一下。配置方面github没配置过的话也要配一下，不然<code>hexo deploy</code>这一步应该上传会失败。</p>
+<p>然后想换主题的话去网上搜，搜好之后下载到<code>blog/themes</code>下，再修改<code>blog/_config.yml</code>中的theme，修改为你刚下的主题名称。</p>
+<p>另外一些blog的基础设置，标题之类，也全在<code>blog/_config.yml</code></p>
+<h1 id="2-dropwizard-helloworld"><a href="#2-dropwizard-helloworld" class="headerlink" title="2. dropwizard-helloworld"></a>2. dropwizard-helloworld</h1><p><em>dropwizard是一个java框架，简介看官网这段介绍说的很清楚</em></p>
+<blockquote>
+<p><strong>Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services.</strong></p>
+<p>Dropwizard pulls together stable, mature libraries from the Java ecosystem into a simple, light-weight package that lets you focus on getting things done.<br>Dropwizard has out-of-the-box support for sophisticated configuration, application metrics, logging, operational tools, and much more, allowing you and your team to ship a production-quality web service in the shortest time possible.</p>
+</blockquote>
+<ol>
+<li>create config.class</li>
+<li>create a config file: config.yml (放在项目根目录下)</li>
+<li>create application.class extends Application<config></config></li>
+<li><p>create a resource class</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Path</span>(<span class="string">"/hello-world"</span>)</div><div class="line"><span class="meta">@Produces</span>(MediaType.APPLICATION_JSON)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldResource</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>register resources in application.class</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> HelloWorldResource resource = <span class="keyword">new</span> HelloWorldResource(configuration.getTemplate(), configuration.getDefaultName() );</div><div class="line">environment.jersey().register(resource);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>主要部件就是<code>config.class</code>,<code>config.yml</code>,<code>application.class</code>,然后<code>resource</code>中就是业务方面了，在<code>application</code>中register即可。</p>
+<h1 id="3-mac里一些工具"><a href="#3-mac里一些工具" class="headerlink" title="3. mac里一些工具"></a>3. mac里一些工具</h1><ol>
+<li>ShadowSocks 设翻墙代理的。</li>
+<li>brew 软件管理。</li>
+<li>zsh，好用的shell。</li>
+<li>oh-mh-zsh，管理zsh的，否则很难用好zsh。</li>
+<li>slack，工作用的聊天工具。有网页版。</li>
+<li>thefuck，命令行纠正。</li>
+<li>virtualbox，虚拟机。</li>
+<li>flux，一天时间变化自动调节屏幕亮度。</li>
+<li>caffeine，你猜。</li>
+<li>xz，解压。</li>
+<li>vim。</li>
+<li>awscli，亚马逊云服务。</li>
+<li>spectacle，如果你多屏的话，这个真是不能没有的神器，窗口布局管理的。</li>
+<li>docker，跑应用的容器。</li>
+<li>atom，某种ide吗，我也不知道。</li>
+<li>iterm2，取代terminal的，更灵活好用。</li>
+<li>pyenv，可以同时装多个版本python，通过pyenv管理切换。</li>
+<li>intellij idea，java ide。</li>
+</ol>
+<h1 id="4-培训整理"><a href="#4-培训整理" class="headerlink" title="4. 培训整理"></a>4. 培训整理</h1><h1 id="5-guice"><a href="#5-guice" class="headerlink" title="5. guice"></a>5. guice</h1><p>看了两章了，有空整理。</p>
+<h1 id="6-junit"><a href="#6-junit" class="headerlink" title="6. junit"></a>6. junit</h1><ol>
+<li><p><strong>@Rule</strong></p>
+<blockquote>
+<p><em>Annotates fields that reference rules or methods that return a rule. A field must be public, not static, and a subtype of TestRule (preferred) or MethodRule. A method must be public, not static, and must return a subtype of TestRule (preferred) or MethodRule.</em></p>
+</blockquote>
+<p> junit提供了一些实现类，便于测试。</p>
+<ul>
+<li><p><em>TemporaryFolder Rule</em></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public static class HasTempFolder &#123;</div><div class="line">	@Rule</div><div class="line">	public TemporaryFolder folder = new TemporaryFolder();</div><div class="line">	@Test</div><div class="line">	public void testUsingTempFolder() throws IOException &#123;</div><div class="line">		File createdFile = folder.newFile(&quot;myfile.txt&quot;);</div><div class="line">		File createdFolder = folder.newFolder(&quot;subfolder&quot;);</div><div class="line">    	// ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>  会自动创建，函数结束后自动释放。</p>
+</li>
+<li><p><em>ErrorCollector</em></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	public static class UsesErrorCollectorTwice &#123;</div><div class="line">	  		@Rule</div><div class="line">			public ErrorCollector collector = new ErrorCollector();</div><div class="line">			@Test</div><div class="line">			public void example() &#123;</div><div class="line">				collector.addError(new Throwable(&quot;first thing went wrong&quot;));</div><div class="line">				collector.addError(new Throwable(&quot;second thing went wrong&quot;));</div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第一个错误之后可以继续往下走。</p>
+</li>
+<li><p><em>ExpectedException</em></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">		public static class HasExpectedException &#123;</div><div class="line">			@Rule</div><div class="line">			public ExpectedException thrown = ExpectedException.none();</div><div class="line">		    @Test</div><div class="line">		    public void throwsNothing() &#123;</div><div class="line">		    &#125;</div><div class="line">		    @Test</div><div class="line">		    public void throwsNullPointerException() &#123;</div><div class="line">  		        thrown.expect(NullPointerException.class);</div><div class="line">		        throw new NullPointerException();</div><div class="line">		    &#125;</div><div class="line">		    @Test</div><div class="line">		    public void throwsNullPointerExceptionWithMessage() &#123;</div><div class="line">		        thrown.expect(NullPointerException.class);</div><div class="line">		        thrown.expectMessage(&quot;happened?&quot;);</div><div class="line">	  	        thrown.expectMessage(startsWith(&quot;What&quot;));</div><div class="line">		        throw new NullPointerException(&quot;What happened?&quot;);</div><div class="line">		    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>thrown.expect(someException.class)</code>即之后抛出的此类异常不会test false.</p>
+</li>
+<li><p><a href="https://github.com/junit-team/junit4/wiki/rules" target="_blank" rel="external">more</a></p>
+</li>
+</ul>
+</li>
+<li><p>@Parameterized</p>
+<p> 会自动把@Parameters中的参数挨着测试一遍。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">@RunWith(Parameterized.class)</div><div class="line">    public static class AdditionTest &#123;</div><div class="line">        @Parameters(name = &quot;&#123;index&#125;: &#123;0&#125; + &#123;1&#125; = &#123;2&#125;&quot;)</div><div class="line">        public static Iterable&lt;Object[]&gt; data() &#123;</div><div class="line">            return Arrays.asList(new Object[][] &#123; &#123; 0, 0, 0 &#125;, &#123; 1, 1, 2 &#125;,</div><div class="line">                    &#123; 3, 2, 5 &#125;, &#123; 4, 3, 7 &#125; &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private int firstSummand;</div><div class="line"></div><div class="line">        private int secondSummand;</div><div class="line"></div><div class="line">        private int sum;</div><div class="line"></div><div class="line">        public AdditionTest(int firstSummand, int secondSummand, int sum) &#123;</div><div class="line">            this.firstSummand = firstSummand;</div><div class="line">            this.secondSummand = secondSummand;</div><div class="line">            this.sum = sum;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Test</div><div class="line">        public void test() &#123;</div><div class="line">            assertEquals(sum, firstSummand + secondSummand);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p> <a href="https://github.com/junit-team/junit4/blob/41d44734f41aba0cf6ba5a11ff5d32ffed155027/src/test/java/org/junit/tests/running/classes/ParameterizedTestTest.java" target="_blank" rel="external">example</a></p>
+<p> <a href="http://junit.org/junit4/javadoc/4.12/org/junit/runners/Parameterized.html" target="_blank" rel="external">more</a></p>
+</li>
+</ol>
+<!--more-->
+<h1 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h1><ul>
+<li>[ ] <strong>maven资料</strong></li>
+<li>[ ] <strong>mockito</strong></li>
+<li>[ ] <strong>git搞懂</strong></li>
+<li>[ ] <strong>看guice</strong></li>
+<li>[ ] <strong>effective java（重构，函数编程）</strong></li>
+<li>[ ] <strong>martinfowler.com</strong></li>
+<li>[ ] <strong>现代 Java 技巧和代码风格指南</strong></li>
+<li>[ ] <strong>英文问题</strong></li>
+<li>[ ] <strong>Alfred</strong></li>
+<li>[ ] <strong>java[流]的用法和lamdba</strong></li>
+<li>[ ] <strong>vim</strong></li>
+<li>[ ] <strong>noSql</strong></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/16/10月上半月总结/" data-id="civv6ai3n0000tss6s4yj35zc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/17/IntelliJ IDEA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          IntelliJ IDEA快捷键
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/程序员/">程序员</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUnit/">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jackson/">Jackson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lambda/">Lambda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STEP/">STEP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dropwizard/">dropwizard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guice/">guice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij-idea/">intellij idea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英语/">英语</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JUnit/" style="font-size: 10px;">JUnit</a> <a href="/tags/Jackson/" style="font-size: 10px;">Jackson</a> <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/STEP/" style="font-size: 10px;">STEP</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/dropwizard/" style="font-size: 10px;">dropwizard</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/guice/" style="font-size: 10px;">guice</a> <a href="/tags/intellij-idea/" style="font-size: 10px;">intellij idea</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/23/trash/OldModeling/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/16/Modeling/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/13/HIVE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Iterm/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
