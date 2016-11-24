@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="`json{    “id”: 33,    “name”: “testSQL”,    “description”: “description”,    “responsibleUserId”: 1147078227,    “actions”: [],    “databaseType”: “MYSQL”,    “runState”: “ENABLED”,    “onboardFlowVe">
+<meta name="description" content="DataFlow123456789101112131415&amp;#123;    &quot;id&quot;: 33,    &quot;name&quot;: &quot;testSQL&quot;,    &quot;description&quot;: &quot;description&quot;,        &quot;responsibleUserId&quot;: 1147078227,    &quot;actions&quot;: [],    &quot;databaseType&quot;: &quot;MYSQL&quot;,    &quot;runSta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2016/11/16/Modeling/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="`json{    “id”: 33,    “name”: “testSQL”,    “description”: “description”,    “responsibleUserId”: 1147078227,    “actions”: [],    “databaseType”: “MYSQL”,    “runState”: “ENABLED”,    “onboardFlowVe">
-<meta property="og:updated_time" content="2016-11-23T16:25:17.000Z">
+<meta property="og:description" content="DataFlow123456789101112131415&amp;#123;    &quot;id&quot;: 33,    &quot;name&quot;: &quot;testSQL&quot;,    &quot;description&quot;: &quot;description&quot;,        &quot;responsibleUserId&quot;: 1147078227,    &quot;actions&quot;: [],    &quot;databaseType&quot;: &quot;MYSQL&quot;,    &quot;runSta">
+<meta property="og:updated_time" content="2016-11-24T11:00:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="`json{    “id”: 33,    “name”: “testSQL”,    “description”: “description”,    “responsibleUserId”: 1147078227,    “actions”: [],    “databaseType”: “MYSQL”,    “runState”: “ENABLED”,    “onboardFlowVe">
+<meta name="twitter:description" content="DataFlow123456789101112131415&amp;#123;    &quot;id&quot;: 33,    &quot;name&quot;: &quot;testSQL&quot;,    &quot;description&quot;: &quot;description&quot;,        &quot;responsibleUserId&quot;: 1147078227,    &quot;actions&quot;: [],    &quot;databaseType&quot;: &quot;MYSQL&quot;,    &quot;runSta">
 
 
 
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -274,7 +274,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-16T14:27:45+08:00">
                 2016-11-16
               </time>
@@ -311,13 +311,29 @@
       
 
       
-        <p>`json<br>{<br>    “id”: 33,<br>    “name”: “testSQL”,<br>    “description”: “description”,<br>    “responsibleUserId”: 1147078227,<br>    “actions”: [],<br>    “databaseType”: “MYSQL”,<br>    “runState”: “ENABLED”,<br>    “onboardFlowVersionId”: 79,<br>    “updatedAt”:<br>    “createdAt”: 1479539194000,<br>    “executionCount”: 0,<br>    “executionSuccessCount”: 0,<br>    “enabled”: true<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># DataSource</div><div class="line">### 1. dataSources filter &amp; dataSource list</div><div class="line">1. type list</div><div class="line">2. owner list</div><div class="line"></div><div class="line">&gt; `datasources/filters/displaytypes`</div><div class="line"></div><div class="line">&gt; `datasources/filters/owners`</div><div class="line"></div><div class="line">&gt; `datasources?displayType=cnn&amp;ownerId=1147078227`</div><div class="line"></div><div class="line">&gt; `listResources`</div><div class="line"></div><div class="line">***扩展一下listResources就好***</div><div class="line"></div><div class="line">### 2. dataSource (dataSource &amp; schemaContract)</div><div class="line">&gt; `datasources/aebd9037-912b-4f96-b7dd-d056f81221b1/schema`</div><div class="line">&gt; `dataSource`</div><div class="line"></div><div class="line">***可以满足***</div><div class="line"></div><div class="line"># Action</div><div class="line">### 1. input</div><div class="line"></div><div class="line">```json</div><div class="line">&#123;</div><div class="line">  &quot;id&quot;: &quot;0&quot;,</div><div class="line">  &quot;type&quot;: &quot;LoadFromVault&quot;,</div><div class="line">  &quot;dataSourceId&quot;: &quot;aebd9037-912b-4f96-b7dd-d056f81221b1&quot;,</div><div class="line">  &quot;targetTableName&quot;: &quot;zxv&quot;,</div><div class="line">  &quot;executeFlowWhenUpdated&quot;: false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="DataFlow"><a href="#DataFlow" class="headerlink" title="DataFlow"></a>DataFlow</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">33</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"testSQL"</span>,</div><div class="line">    <span class="attr">"description"</span>: <span class="string">"description"</span>,    </div><div class="line">    <span class="attr">"responsibleUserId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"actions"</span>: [],</div><div class="line">    <span class="attr">"databaseType"</span>: <span class="string">"MYSQL"</span>,</div><div class="line">    <span class="attr">"runState"</span>: <span class="string">"ENABLED"</span>,</div><div class="line">    <span class="attr">"onboardFlowVersionId"</span>: <span class="number">79</span>,</div><div class="line">    <span class="attr">"updatedAt"</span>: <span class="number">1479539194000</span>,</div><div class="line">    <span class="attr">"createdAt"</span>: <span class="number">1479539194000</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"enabled"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="DataSource"><a href="#DataSource" class="headerlink" title="DataSource"></a>DataSource</h1><h3 id="1-dataSources-filter-amp-dataSource-list"><a href="#1-dataSources-filter-amp-dataSource-list" class="headerlink" title="1. dataSources filter &amp; dataSource list"></a>1. dataSources filter &amp; dataSource list</h3><ol>
+<li>type list</li>
+<li>owner list</li>
+</ol>
+<blockquote>
+<p><code>datasources/filters/displaytypes</code></p>
+<p><code>datasources/filters/owners</code></p>
+<p><code>datasources?displayType=cnn&amp;ownerId=1147078227</code></p>
+<p><code>listResources</code></p>
+</blockquote>
+<p><strong><em>扩展一下listResources就好</em></strong></p>
+<h3 id="2-dataSource-dataSource-amp-schemaContract"><a href="#2-dataSource-dataSource-amp-schemaContract" class="headerlink" title="2. dataSource (dataSource &amp; schemaContract)"></a>2. dataSource (dataSource &amp; schemaContract)</h3><blockquote>
+<p><code>datasources/aebd9037-912b-4f96-b7dd-d056f81221b1/schema</code><br><code>dataSource</code></p>
+</blockquote>
+<p><strong><em>可以满足</em></strong></p>
+<h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><h3 id="1-input"><a href="#1-input" class="headerlink" title="1. input"></a>1. input</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"0"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"LoadFromVault"</span>,</div><div class="line">  <span class="attr">"dataSourceId"</span>: <span class="string">"aebd9037-912b-4f96-b7dd-d056f81221b1"</span>,</div><div class="line">  <span class="attr">"targetTableName"</span>: <span class="string">"zxv"</span>,</div><div class="line">  <span class="attr">"executeFlowWhenUpdated"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong><em>这里商量一下，<code>targetTableName</code>去掉，需要的话查<code>Datasource</code>，有可能会不方便到时候再考虑加。</em></strong></p>
 <h3 id="2-translation"><a href="#2-translation" class="headerlink" title="2. translation"></a>2. translation</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"1"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"SQL"</span>,</div><div class="line">  <span class="attr">"statements"</span>: [</div><div class="line">      <span class="string">"CREATE TABLE transform_data_1 AS select title from zxv;"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"dependsOn"</span>: [</div><div class="line">      <span class="string">"0"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TODO</span></div><div class="line">这里需要考虑其他type</div></pre></td></tr></table></figure>
 <h3 id="3-output（也有runSQL-amp-preview）"><a href="#3-output（也有runSQL-amp-preview）" class="headerlink" title="3. output（也有runSQL &amp; preview）"></a>3. output（也有runSQL &amp; preview）</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"2"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"PublishToVault"</span>,</div><div class="line">  <span class="attr">"dependsOn"</span>: [</div><div class="line">      <span class="string">"1"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"query"</span>: <span class="string">"select * from transform_data_1;"</span>,</div><div class="line">  <span class="attr">"dataSource"</span>: &#123;</div><div class="line">      <span class="attr">"guid"</span>: <span class="string">"b7ed2edc-a304-411b-8f56-3ffc0bbb4c43"</span>,</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"output"</span>,</div><div class="line">      <span class="attr">"description"</span>: <span class="string">"DataFlow"</span>,</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"DataFlow"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TODO</span></div><div class="line">这里dataSource部分对比一下turbine的dataSource，output作为一种dataSource存储。</div></pre></td></tr></table></figure>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h3 id="1-onboardFlowVersion"><a href="#1-onboardFlowVersion" class="headerlink" title="1. onboardFlowVersion"></a>1. onboardFlowVersion</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">70</span>,</div><div class="line">    <span class="attr">"onboardFlowId"</span>: <span class="number">32</span>,</div><div class="line">    <span class="attr">"timeStamp"</span>: <span class="number">1479538797000</span>,</div><div class="line">    <span class="attr">"authorId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h3 id="1-onboardFlowVersion"><a href="#1-onboardFlowVersion" class="headerlink" title="1. onboardFlowVersion"></a>1. onboardFlowVersion</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">70</span>,</div><div class="line">    <span class="attr">"onboardFlowId"</span>: <span class="number">32</span>,</div><div class="line">    <span class="attr">"timeStamp"</span>: <span class="number">1479538797000</span>,</div><div class="line">    <span class="attr">"authorId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"dataFlow"</span>:</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2-more"><a href="#2-more" class="headerlink" title="2. more"></a>2. more</h3><h4 id="2-1-runSQL（其实只是预览功能）"><a href="#2-1-runSQL（其实只是预览功能）" class="headerlink" title="2.1 runSQL（其实只是预览功能）"></a>2.1 runSQL（其实只是预览功能）</h4><p><code>dataprocessing/v1/dataflows/authoring/databases/dataflow_b4982760991b4dd195f81da25f92ed03/runsql?databaseType=MYSQL&amp;dropTable=transform_data_1&amp;schema=dataflow_b4982760991b4dd195f81da25f92ed03&amp;tenantId=madadata-appdev&amp;timeout=900&amp;userId=1147078227</code></p>
 <h4 id="2-2-preview（其实只是预览功能）"><a href="#2-2-preview（其实只是预览功能）" class="headerlink" title="2.2 preview（其实只是预览功能）"></a>2.2 preview（其实只是预览功能）</h4><p><code>dataflows/authoring/databases/dataflow_b4982760991b4dd195f81da25f92ed03/table?databaseType=MYSQL&amp;limit=100&amp;schema=dataflow_b4982760991b4dd195f81da25f92ed03&amp;tableName=transform_data_2&amp;tenantId=madadata-appdev&amp;userId=1147078227</code></p>
 <h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>**output version<br>scheduling**</p>
@@ -357,8 +373,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/23/trash/OldModeling/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/24/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -408,10 +424,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -428,7 +444,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -436,7 +452,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -444,8 +460,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -479,7 +495,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-translation"><span class="nav-number">1.</span> <span class="nav-text">2. translation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-output（也有runSQL-amp-preview）"><span class="nav-number">2.</span> <span class="nav-text">3. output（也有runSQL & preview）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-number"></span> <span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-onboardFlowVersion"><span class="nav-number">1.</span> <span class="nav-text">1. onboardFlowVersion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-more"><span class="nav-number">2.</span> <span class="nav-text">2. more</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-runSQL（其实只是预览功能）"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 runSQL（其实只是预览功能）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-preview（其实只是预览功能）"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 preview（其实只是预览功能）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-number"></span> <span class="nav-text">TODO</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DataFlow"><span class="nav-number">1.</span> <span class="nav-text">DataFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataSource"><span class="nav-number">2.</span> <span class="nav-text">DataSource</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dataSources-filter-amp-dataSource-list"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. dataSources filter & dataSource list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-dataSource-dataSource-amp-schemaContract"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. dataSource (dataSource & schemaContract)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-number">3.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-translation"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. translation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-output（也有runSQL-amp-preview）"><span class="nav-number">3.0.3.</span> <span class="nav-text">3. output（也有runSQL & preview）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-number">4.</span> <span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-onboardFlowVersion"><span class="nav-number">4.0.1.</span> <span class="nav-text">1. onboardFlowVersion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-more"><span class="nav-number">4.0.2.</span> <span class="nav-text">2. more</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-runSQL（其实只是预览功能）"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">2.1 runSQL（其实只是预览功能）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-preview（其实只是预览功能）"><span class="nav-number">4.0.2.2.</span> <span class="nav-text">2.2 preview（其实只是预览功能）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO"><span class="nav-number">5.</span> <span class="nav-text">TODO</span></a></li></ol></div>
             
 
           </div>
@@ -509,7 +525,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

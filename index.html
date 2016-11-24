@@ -183,7 +183,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -193,7 +193,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -275,7 +275,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T00:48:01+08:00">
                 2016-11-24
               </time>
@@ -361,160 +361,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/23/trash/OldModeling/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="John Doe">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/23/trash/OldModeling/" itemprop="url">
-                  Unbenannt
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T15:42:31+08:00">
-                2016-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>要做往dataFlow中添加input，output，和各种actions</li>
-<li>input没有别的只需要可以给他配置数据来源哪个table。（&amp; 预览数据功能）</li>
-<li>output没有别的只是作为标记数据最终结果（出口）。（数据转换结束）</li>
-</ol>
-<p><strong>所以要做的就是： <code>input + action = output</code><br>只不过一个dataFlow中可以有不止一条<code>i + a = o</code><br>只不过一条<code>i + a = o</code>中，input可以是多个，action可以是多个，output一定是一个。</strong></p>
-<ol>
-<li>关于实现，每条<code>inputs + actions = output</code>，input作为起点，output作为终点，中间每个节点有输入（actionIn）和输出（actionOut）和各自的转换行为。（比如为输入添加一列常数列），所以<code>actionIn + action提供的转换 = actionOut</code>，而<code>actionIn = 上一节点的actionOut</code>。</li>
-</ol>
-<hr>
-<p>上边是比较细节的。 或者说只是关于具体实现的方案， 而还有很多比如校验等功能模块。</p>
-<p>总之，需要先从整个大<br>功能，来分析一下，要做什么。 先来想想大积木应该是什么样。</p>
-<hr>
-<p>要做的事情分一下应该。<br>比如要有一个sql嵌套这个API。 或者是用view。<br>比如中间表不用存，只要最终结果表。<br>比如要考虑结果怎么存。</p>
-<p>API：</p>
-<ol>
-<li>query resources type list</li>
-<li>query resources owner list</li>
-<li>queryAllTables by type &amp; owner</li>
-<li>选择table要返回columns:[type:{columnType}, name:”columnName”]</li>
-<li>update</li>
-</ol>
-<p>Plan:</p>
-<ol>
-<li>原来认为的input/output/action 其实都是action。 只是类别不同。</li>
-<li>不同的trans action是不同type的action。 可以看保存的<code>actions.json</code>。</li>
-<li>错误用configuration error。 可以看保存的<code>configurationErrors.json</code>。</li>
-<li>每次改动都更新，并返回最新。可以看<code>request.json</code>和<code>response.json</code>。</li>
-<li>output属于一种dataSource。</li>
-</ol>
-<p>Automatically run DataFlow when any of the following Datasets are updated</p>
-<hr>
-<h2 id="save-dataFlow"><a href="#save-dataFlow" class="headerlink" title="save dataFlow"></a>save dataFlow</h2><p><code>api/dataprocessing/v1/dataflows</code></p>
-<h2 id="run-dataFlow"><a href="#run-dataFlow" class="headerlink" title="run dataFlow"></a>run dataFlow</h2><p><code>dataprocessing/v1/dataflows/33/executions</code></p>
-<h3 id="query-input"><a href="#query-input" class="headerlink" title="query input"></a>query input</h3><h3 id="create-input"><a href="#create-input" class="headerlink" title="create input"></a>create input</h3><h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><hr>
-<h1 id="1-创建dataFlow"><a href="#1-创建dataFlow" class="headerlink" title="1. 创建dataFlow"></a>1. 创建dataFlow</h1><h1 id="2-actions"><a href="#2-actions" class="headerlink" title="2. actions"></a>2. actions</h1><h2 id="2-1-input"><a href="#2-1-input" class="headerlink" title="2.1. input"></a>2.1. input</h2><ol>
-<li>filter by types &amp; owners<br>2.</li>
-</ol>
-<h2 id="2-2-output"><a href="#2-2-output" class="headerlink" title="2.2. output"></a>2.2. output</h2><h2 id="2-3-trans"><a href="#2-3-trans" class="headerlink" title="2.3. trans"></a>2.3. trans</h2><h1 id="3-save"><a href="#3-save" class="headerlink" title="3. save"></a>3. save</h1><h1 id="4-run"><a href="#4-run" class="headerlink" title="4. run"></a>4. run</h1>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/16/Modeling/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -541,7 +387,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/16/Modeling/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -554,7 +400,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-16T14:27:45+08:00">
                 2016-11-16
               </time>
@@ -593,13 +439,29 @@
       
         
           
-            <p>`json<br>{<br>    “id”: 33,<br>    “name”: “testSQL”,<br>    “description”: “description”,<br>    “responsibleUserId”: 1147078227,<br>    “actions”: [],<br>    “databaseType”: “MYSQL”,<br>    “runState”: “ENABLED”,<br>    “onboardFlowVersionId”: 79,<br>    “updatedAt”:<br>    “createdAt”: 1479539194000,<br>    “executionCount”: 0,<br>    “executionSuccessCount”: 0,<br>    “enabled”: true<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># DataSource</div><div class="line">### 1. dataSources filter &amp; dataSource list</div><div class="line">1. type list</div><div class="line">2. owner list</div><div class="line"></div><div class="line">&gt; `datasources/filters/displaytypes`</div><div class="line"></div><div class="line">&gt; `datasources/filters/owners`</div><div class="line"></div><div class="line">&gt; `datasources?displayType=cnn&amp;ownerId=1147078227`</div><div class="line"></div><div class="line">&gt; `listResources`</div><div class="line"></div><div class="line">***扩展一下listResources就好***</div><div class="line"></div><div class="line">### 2. dataSource (dataSource &amp; schemaContract)</div><div class="line">&gt; `datasources/aebd9037-912b-4f96-b7dd-d056f81221b1/schema`</div><div class="line">&gt; `dataSource`</div><div class="line"></div><div class="line">***可以满足***</div><div class="line"></div><div class="line"># Action</div><div class="line">### 1. input</div><div class="line"></div><div class="line">```json</div><div class="line">&#123;</div><div class="line">  &quot;id&quot;: &quot;0&quot;,</div><div class="line">  &quot;type&quot;: &quot;LoadFromVault&quot;,</div><div class="line">  &quot;dataSourceId&quot;: &quot;aebd9037-912b-4f96-b7dd-d056f81221b1&quot;,</div><div class="line">  &quot;targetTableName&quot;: &quot;zxv&quot;,</div><div class="line">  &quot;executeFlowWhenUpdated&quot;: false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <h1 id="DataFlow"><a href="#DataFlow" class="headerlink" title="DataFlow"></a>DataFlow</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">33</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"testSQL"</span>,</div><div class="line">    <span class="attr">"description"</span>: <span class="string">"description"</span>,    </div><div class="line">    <span class="attr">"responsibleUserId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"actions"</span>: [],</div><div class="line">    <span class="attr">"databaseType"</span>: <span class="string">"MYSQL"</span>,</div><div class="line">    <span class="attr">"runState"</span>: <span class="string">"ENABLED"</span>,</div><div class="line">    <span class="attr">"onboardFlowVersionId"</span>: <span class="number">79</span>,</div><div class="line">    <span class="attr">"updatedAt"</span>: <span class="number">1479539194000</span>,</div><div class="line">    <span class="attr">"createdAt"</span>: <span class="number">1479539194000</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"enabled"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="DataSource"><a href="#DataSource" class="headerlink" title="DataSource"></a>DataSource</h1><h3 id="1-dataSources-filter-amp-dataSource-list"><a href="#1-dataSources-filter-amp-dataSource-list" class="headerlink" title="1. dataSources filter &amp; dataSource list"></a>1. dataSources filter &amp; dataSource list</h3><ol>
+<li>type list</li>
+<li>owner list</li>
+</ol>
+<blockquote>
+<p><code>datasources/filters/displaytypes</code></p>
+<p><code>datasources/filters/owners</code></p>
+<p><code>datasources?displayType=cnn&amp;ownerId=1147078227</code></p>
+<p><code>listResources</code></p>
+</blockquote>
+<p><strong><em>扩展一下listResources就好</em></strong></p>
+<h3 id="2-dataSource-dataSource-amp-schemaContract"><a href="#2-dataSource-dataSource-amp-schemaContract" class="headerlink" title="2. dataSource (dataSource &amp; schemaContract)"></a>2. dataSource (dataSource &amp; schemaContract)</h3><blockquote>
+<p><code>datasources/aebd9037-912b-4f96-b7dd-d056f81221b1/schema</code><br><code>dataSource</code></p>
+</blockquote>
+<p><strong><em>可以满足</em></strong></p>
+<h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><h3 id="1-input"><a href="#1-input" class="headerlink" title="1. input"></a>1. input</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"0"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"LoadFromVault"</span>,</div><div class="line">  <span class="attr">"dataSourceId"</span>: <span class="string">"aebd9037-912b-4f96-b7dd-d056f81221b1"</span>,</div><div class="line">  <span class="attr">"targetTableName"</span>: <span class="string">"zxv"</span>,</div><div class="line">  <span class="attr">"executeFlowWhenUpdated"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong><em>这里商量一下，<code>targetTableName</code>去掉，需要的话查<code>Datasource</code>，有可能会不方便到时候再考虑加。</em></strong></p>
 <h3 id="2-translation"><a href="#2-translation" class="headerlink" title="2. translation"></a>2. translation</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"1"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"SQL"</span>,</div><div class="line">  <span class="attr">"statements"</span>: [</div><div class="line">      <span class="string">"CREATE TABLE transform_data_1 AS select title from zxv;"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"dependsOn"</span>: [</div><div class="line">      <span class="string">"0"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TODO</span></div><div class="line">这里需要考虑其他type</div></pre></td></tr></table></figure>
 <h3 id="3-output（也有runSQL-amp-preview）"><a href="#3-output（也有runSQL-amp-preview）" class="headerlink" title="3. output（也有runSQL &amp; preview）"></a>3. output（也有runSQL &amp; preview）</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"id"</span>: <span class="string">"2"</span>,</div><div class="line">  <span class="attr">"type"</span>: <span class="string">"PublishToVault"</span>,</div><div class="line">  <span class="attr">"dependsOn"</span>: [</div><div class="line">      <span class="string">"1"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"query"</span>: <span class="string">"select * from transform_data_1;"</span>,</div><div class="line">  <span class="attr">"dataSource"</span>: &#123;</div><div class="line">      <span class="attr">"guid"</span>: <span class="string">"b7ed2edc-a304-411b-8f56-3ffc0bbb4c43"</span>,</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"output"</span>,</div><div class="line">      <span class="attr">"description"</span>: <span class="string">"DataFlow"</span>,</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"DataFlow"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TODO</span></div><div class="line">这里dataSource部分对比一下turbine的dataSource，output作为一种dataSource存储。</div></pre></td></tr></table></figure>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h3 id="1-onboardFlowVersion"><a href="#1-onboardFlowVersion" class="headerlink" title="1. onboardFlowVersion"></a>1. onboardFlowVersion</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">70</span>,</div><div class="line">    <span class="attr">"onboardFlowId"</span>: <span class="number">32</span>,</div><div class="line">    <span class="attr">"timeStamp"</span>: <span class="number">1479538797000</span>,</div><div class="line">    <span class="attr">"authorId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h3 id="1-onboardFlowVersion"><a href="#1-onboardFlowVersion" class="headerlink" title="1. onboardFlowVersion"></a>1. onboardFlowVersion</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="number">70</span>,</div><div class="line">    <span class="attr">"onboardFlowId"</span>: <span class="number">32</span>,</div><div class="line">    <span class="attr">"timeStamp"</span>: <span class="number">1479538797000</span>,</div><div class="line">    <span class="attr">"authorId"</span>: <span class="number">1147078227</span>,</div><div class="line">    <span class="attr">"executionCount"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"executionSuccessCount"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"dataFlow"</span>:</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2-more"><a href="#2-more" class="headerlink" title="2. more"></a>2. more</h3><h4 id="2-1-runSQL（其实只是预览功能）"><a href="#2-1-runSQL（其实只是预览功能）" class="headerlink" title="2.1 runSQL（其实只是预览功能）"></a>2.1 runSQL（其实只是预览功能）</h4><p><code>dataprocessing/v1/dataflows/authoring/databases/dataflow_b4982760991b4dd195f81da25f92ed03/runsql?databaseType=MYSQL&amp;dropTable=transform_data_1&amp;schema=dataflow_b4982760991b4dd195f81da25f92ed03&amp;tenantId=madadata-appdev&amp;timeout=900&amp;userId=1147078227</code></p>
 <h4 id="2-2-preview（其实只是预览功能）"><a href="#2-2-preview（其实只是预览功能）" class="headerlink" title="2.2 preview（其实只是预览功能）"></a>2.2 preview（其实只是预览功能）</h4><p><code>dataflows/authoring/databases/dataflow_b4982760991b4dd195f81da25f92ed03/table?databaseType=MYSQL&amp;limit=100&amp;schema=dataflow_b4982760991b4dd195f81da25f92ed03&amp;tableName=transform_data_2&amp;tenantId=madadata-appdev&amp;userId=1147078227</code></p>
 <h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>**output version<br>scheduling**</p>
@@ -667,7 +529,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/13/HIVE/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -680,7 +542,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-13T15:49:39+08:00">
                 2016-11-13
               </time>
@@ -798,7 +660,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/28/Iterm/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -811,7 +673,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-28T16:15:08+08:00">
                 2016-10-28
               </time>
@@ -919,7 +781,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/24/太多要学习的东西/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -932,7 +794,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-24T17:01:42+08:00">
                 2016-10-24
               </time>
@@ -1055,7 +917,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-21T23:48:01+08:00">
                 2016-10-21
               </time>
@@ -1072,7 +934,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/程序员/" itemprop="url" rel="index">
@@ -1192,7 +1054,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-21T23:48:01+08:00">
                 2016-10-21
               </time>
@@ -1209,7 +1071,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/程序员/" itemprop="url" rel="index">
@@ -1337,7 +1199,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-21T23:48:01+08:00">
                 2016-10-21
               </time>
@@ -1354,7 +1216,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/程序员/" itemprop="url" rel="index">
@@ -1460,7 +1322,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/21/GraphQL/" itemprop="url">
-                  Unbenannt
+                  Untitled
                 </a>
               
             
@@ -1473,7 +1335,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <span class="post-meta-item-text">Posted on</span>
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-21T09:37:37+08:00">
                 2016-10-21
               </time>
@@ -1547,6 +1409,145 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/19/Git/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Doe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/19/Git/" itemprop="url">
+                  git杂记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-19T23:48:01+08:00">
+                2016-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/程序员/" itemprop="url" rel="index">
+                    <span itemprop="name">程序员</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>记录一些常用git命令<br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/19/Git/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1593,7 +1594,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">20</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1601,7 +1602,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -1609,8 +1610,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1658,7 +1659,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
